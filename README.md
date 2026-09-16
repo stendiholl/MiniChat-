@@ -1,17 +1,99 @@
-# main
+# MiniChat
 
-A new Flutter project.
+MiniChat — мобильное приложение-мессенджер для обмена текстовыми сообщениями.
 
-## Getting Started
+Проект разработан в рамках курсовой работы по дисциплине
+«Технологии разработки мобильных приложений».
 
-This project is a starting point for a Flutter application.
+## Цель проекта
 
-A few resources to get you started if this is your first Flutter project:
+Разработка мобильного приложения для простой и удобной текстовой коммуникации
+между пользователями.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Основные возможности
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- регистрация пользователя;
+- авторизация;
+- валидация введённых данных;
+- список чатов;
+- поиск чатов;
+- открытие диалога;
+- отправка текстовых сообщений;
+- сохранение истории сообщений;
+- создание нового чата;
+- поиск пользователей через REST API;
+- профиль пользователя;
+- выход из аккаунта;
+- локальное хранение данных;
+- работа с REST API;
+- модульное тестирование;
+- обфускация приложения для release-сборки.
+
+## Целевая платформа
+
+Основная платформа проекта:
+
+- iOS
+
+Разработка выполнялась на macOS в Android Studio с использованием Flutter.
+
+## Технологический стек
+
+| Технология | Назначение |
+|---|---|
+| Flutter | Разработка пользовательского интерфейса |
+| Dart | Основной язык программирования |
+| Riverpod | Управление состоянием |
+| MVVM | Архитектура приложения |
+| GoRouter | Навигация между экранами |
+| Hive | Локальное хранение данных |
+| Dio | Работа с HTTP-запросами |
+| JSONPlaceholder | REST API для получения данных пользователей |
+| Flutter Test | Модульное тестирование |
+
+## Архитектура
+
+В проекте используется архитектурный подход MVVM.
+
+Основная схема взаимодействия:
+
+View → Riverpod → ViewModel → Repository → Local Storage / REST API
+
+### Основные уровни
+
+**View**
+
+Пользовательские экраны и UI-компоненты.
+
+**ViewModel**
+
+Содержит состояние экранов и логику взаимодействия между интерфейсом и данными.
+
+**Repository**
+
+Абстрагирует получение данных от интерфейса приложения.
+
+**Local Storage**
+
+Используется Hive для хранения локальных данных, включая историю сообщений.
+
+**REST API**
+
+Используется Dio для выполнения HTTP-запросов к API.
+
+## Структура проекта
+
+```text
+lib/
+├── core/
+│   ├── constants/
+│   ├── network/
+│   └── storage/
+├── data/
+├── models/
+├── providers/
+├── repositories/
+├── screens/
+├── viewmodels/
+├── widgets/
+└── main.dart
